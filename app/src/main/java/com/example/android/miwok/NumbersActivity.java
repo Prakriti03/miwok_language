@@ -17,6 +17,13 @@ package com.example.android.miwok;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.ArrayAdapter;
+import android.widget.GridView;
+import android.widget.ListView;
+import android.widget.TextView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class NumbersActivity extends AppCompatActivity {
 
@@ -24,5 +31,19 @@ public class NumbersActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_numbers);
+        ListView numbers_text= (ListView) findViewById(R.id.numbers_text);
+        ArrayList<Word> numbersList=new ArrayList<>();
+        numbersList.add(new Word("one","lutti",R.drawable.number_one,R.raw.number_one));
+        numbersList.add(new Word("one","lutti",R.drawable.number_two,R.raw.number_two));
+        numbersList.add(new Word("one","lutti",R.drawable.number_three,R.raw.number_three));
+        numbersList.add(new Word("one","lutti",R.drawable.number_four,R.raw.number_four));
+        numbersList.add(new Word("one","lutti",R.drawable.number_five,R.raw.number_five));
+        numbersList.add(new Word("one","lutti",R.drawable.number_six,R.raw.number_six));
+        numbersList.add(new Word("one","lutti",R.drawable.number_seven,R.raw.number_seven));
+        numbersList.add(new Word("one","lutti",R.drawable.number_eight,R.raw.number_eight));
+        numbersList.add(new Word("one","lutti",R.drawable.number_nine,R.raw.number_nine));
+        numbersList.add(new Word("one","lutti",R.drawable.number_ten,R.raw.number_ten));
+        WordAdapter adapter = new WordAdapter(this,numbersList);
+        numbers_text.setAdapter(adapter);
     }
 }

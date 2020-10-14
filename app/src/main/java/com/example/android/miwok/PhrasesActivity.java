@@ -17,12 +17,30 @@ package com.example.android.miwok;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.ListView;
+
+import org.w3c.dom.Text;
+
+import java.util.ArrayList;
 
 public class PhrasesActivity extends AppCompatActivity {
+    ListView phraseListview;
+    ArrayList<Word> phrases;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_phrases);
+        phraseListview=(ListView)findViewById(R.id.phrase_listview);
+        phrases=new ArrayList<>();
+        phrases.add(new Word("minto wuksus","Where are you going?",R.raw.phrase_where_are_you_going));
+        phrases.add(new Word("tinnә oyaase'nә","What is your name?",R.raw.phrase_what_is_your_name));
+        phrases.add(new Word("oyaaset...","My name is....",R.raw.phrase_my_name_is));
+        phrases.add(new Word("michәksәs?","How are you feeling?",R.raw.phrase_how_are_you_feeling));
+        phrases.add(new Word("kuchi achit","I'm feeling good.",R.raw.phrase_im_feeling_good));
+        WordAdapter phraseAdapter=new WordAdapter(this,phrases);
+        phraseListview.setAdapter(phraseAdapter);
     }
 }
